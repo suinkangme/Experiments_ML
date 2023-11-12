@@ -1,0 +1,324 @@
+**************************************************************
+(A) Classifier 1 - Base DT
+DecisionTreeClassifier(max_depth=3)
+
+
+(B) Confusion Matrix
+[[ 25  23 266]
+ [ 20 249  62]
+ [ 28  61 311]]
+
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.34      0.08      0.13       314
+           M       0.75      0.75      0.75       331
+           I       0.49      0.78      0.60       400
+
+    accuracy                           0.56      1045
+   macro avg       0.53      0.54      0.49      1045
+weighted avg       0.53      0.56      0.51      1045
+
+
+(E) The result after 5 times of train-test repetition:
+average accuracy: 0.5286, variance: 0.000165
+average macro-average F1: 0.4965, variance: 0.001127
+average weighted-average F1: 0.4946, variance: 0.000743
+
+
+**************************************************************
+(A) Classifier 2 - Top DT
+GridSearchCV(estimator=DecisionTreeClassifier(max_depth=3),
+             param_grid={'criterion': ['gini', 'entropy'],
+                         'max_depth': [None, 3, 5],
+                         'min_samples_split': [2, 5, 10]})
+
+
+best parameters: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+
+
+
+(B) Confusion Matrix
+[[151  50 133]
+ [ 37 250  46]
+ [138  63 177]]
+
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.46      0.45      0.46       334
+           M       0.69      0.75      0.72       333
+           I       0.50      0.47      0.48       378
+
+    accuracy                           0.55      1045
+   macro avg       0.55      0.56      0.55      1045
+weighted avg       0.55      0.55      0.55      1045
+
+
+(E) The result after 5 times of train-test repetition:
+best parameters for iteration1: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+best parameters for iteration2: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 10}
+best parameters for iteration3: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+best parameters for iteration4: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 10}
+best parameters for iteration5: {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 2}
+
+
+average accuracy: 0.5516, variance: 0.000104
+average macro-average F1: 0.5294, variance: 0.000209
+average weighted-average F1: 0.5306, variance: 0.000141
+**************************************************************
+(A) Classifier 3 - Base MLP
+MLPClassifier(activation='logistic', hidden_layer_sizes=(100, 100),
+              solver='sgd')
+
+(B) Confusion Matrix
+[[  7  52 261]
+ [  1 261  72]
+ [ 13  90 288]]
+
+(C, D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.33      0.02      0.04       320
+           M       0.65      0.78      0.71       334
+           I       0.46      0.74      0.57       391
+
+    accuracy                           0.53      1045
+   macro avg       0.48      0.51      0.44      1045
+weighted avg       0.48      0.53      0.45      1045
+
+
+Base MLP Train-Test Repetition
+
+=== Iteration 1 === 
+(A) MLPClassifier(activation='logistic', hidden_layer_sizes=(100, 100),
+              solver='sgd')
+
+(B) Confusion Matrix
+[[ 28  50 249]
+ [  2 262  85]
+ [ 29  63 277]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.47      0.09      0.15       327
+           M       0.70      0.75      0.72       349
+           I       0.45      0.75      0.57       369
+
+    accuracy                           0.54      1045
+   macro avg       0.54      0.53      0.48      1045
+weighted avg       0.54      0.54      0.49      1045
+
+=== Iteration 2 === 
+(A) MLPClassifier(activation='logistic', hidden_layer_sizes=(100, 100),
+              solver='sgd')
+
+(B) Confusion Matrix
+[[ 11  61 281]
+ [  0 249  81]
+ [ 11  67 284]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.50      0.03      0.06       353
+           M       0.66      0.75      0.70       330
+           I       0.44      0.78      0.56       362
+
+    accuracy                           0.52      1045
+   macro avg       0.53      0.52      0.44      1045
+weighted avg       0.53      0.52      0.44      1045
+
+=== Iteration 3 === 
+(A) MLPClassifier(activation='logistic', hidden_layer_sizes=(100, 100),
+              solver='sgd')
+
+(B) Confusion Matrix
+[[ 44  64 230]
+ [  1 238  71]
+ [ 56  87 254]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.44      0.13      0.20       338
+           M       0.61      0.77      0.68       310
+           I       0.46      0.64      0.53       397
+
+    accuracy                           0.51      1045
+   macro avg       0.50      0.51      0.47      1045
+weighted avg       0.50      0.51      0.47      1045
+
+=== Iteration 4 === 
+(A) MLPClassifier(activation='logistic', hidden_layer_sizes=(100, 100),
+              solver='sgd')
+
+(B) Confusion Matrix
+[[  3  49 282]
+ [  0 260  76]
+ [  3  88 284]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.50      0.01      0.02       334
+           M       0.65      0.77      0.71       336
+           I       0.44      0.76      0.56       375
+
+    accuracy                           0.52      1045
+   macro avg       0.53      0.51      0.43      1045
+weighted avg       0.53      0.52      0.43      1045
+
+=== Iteration 5 === 
+(A) MLPClassifier(activation='logistic', hidden_layer_sizes=(100, 100),
+              solver='sgd')
+
+(B) Confusion Matrix
+[[ 37  59 245]
+ [  1 260  67]
+ [ 29  93 254]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.55      0.11      0.18       341
+           M       0.63      0.79      0.70       328
+           I       0.45      0.68      0.54       376
+
+    accuracy                           0.53      1045
+   macro avg       0.54      0.53      0.47      1045
+weighted avg       0.54      0.53      0.47      1045
+
+(E) The result after 5 times of train-test repetition:
+	The average accuracy / variance:  0.5254,  0.000096
+	The average macro-average f1 score / variance:  0.4590,  0.000395
+	The average weighted-average f1 score / variance:  0.4603,  0.000434
+
+
+**************************************************************
+(A) Classifier 4 - Top MLP
+best parameters: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+
+(B) Confusion Matrix
+[[130  38 152]
+ [ 16 264  54]
+ [121  70 200]]
+
+(C, D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.49      0.41      0.44       320
+           M       0.71      0.79      0.75       334
+           I       0.49      0.51      0.50       391
+
+    accuracy                           0.57      1045
+   macro avg       0.56      0.57      0.56      1045
+weighted avg       0.56      0.57      0.56      1045
+
+
+Top MLP Train-Test Repetition
+
+=== Iteration 1 === 
+(A) Best Parameters: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+
+(B) Confusion Matrix
+[[ 98  51 175]
+ [ 21 278  33]
+ [ 90  79 220]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.47      0.30      0.37       324
+           M       0.68      0.84      0.75       332
+           I       0.51      0.57      0.54       389
+
+    accuracy                           0.57      1045
+   macro avg       0.55      0.57      0.55      1045
+weighted avg       0.55      0.57      0.55      1045
+
+=== Iteration 2 === 
+(A) Best Parameters: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'sgd'}
+
+(B) Confusion Matrix
+[[128  42 143]
+ [ 27 279  40]
+ [126  82 178]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.46      0.41      0.43       313
+           M       0.69      0.81      0.74       346
+           I       0.49      0.46      0.48       386
+
+    accuracy                           0.56      1045
+   macro avg       0.55      0.56      0.55      1045
+weighted avg       0.55      0.56      0.55      1045
+
+=== Iteration 3 === 
+(A) Best Parameters: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+
+(B) Confusion Matrix
+[[124  46 168]
+ [ 16 266  42]
+ [137  65 181]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.45      0.37      0.40       338
+           M       0.71      0.82      0.76       324
+           I       0.46      0.47      0.47       383
+
+    accuracy                           0.55      1045
+   macro avg       0.54      0.55      0.54      1045
+weighted avg       0.53      0.55      0.54      1045
+
+=== Iteration 4 === 
+(A) Best Parameters: {'activation': 'tanh', 'hidden_layer_sizes': (10, 10, 10), 'solver': 'adam'}
+
+(B) Confusion Matrix
+[[123  40 189]
+ [ 24 235  45]
+ [120  56 213]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.46      0.35      0.40       352
+           M       0.71      0.77      0.74       304
+           I       0.48      0.55      0.51       389
+
+    accuracy                           0.55      1045
+   macro avg       0.55      0.56      0.55      1045
+weighted avg       0.54      0.55      0.54      1045
+
+=== Iteration 5 === 
+(A) Best Parameters: {'activation': 'relu', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+
+(B) Confusion Matrix
+[[125  39 161]
+ [ 23 258  47]
+ [131  65 196]]
+
+(C,D) Classification Report
+              precision    recall  f1-score   support
+
+           F       0.45      0.38      0.41       325
+           M       0.71      0.79      0.75       328
+           I       0.49      0.50      0.49       392
+
+    accuracy                           0.55      1045
+   macro avg       0.55      0.56      0.55      1045
+weighted avg       0.55      0.55      0.55      1045
+
+(E) The result after 5 times of train-test repetition:
+	The average accuracy / variance:  0.5554,  0.000081
+	The average macro-average f1 score / variance:  0.5494,  0.000011
+	The average weighted-average f1 score / variance:  0.5458,  0.000044
+
+
