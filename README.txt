@@ -11,7 +11,7 @@
 	
 - change the path
 	import os
-	os.chdir('/content/drive/MyDrive/comp432/')
+	os.chdir('/content/drive/MyDrive/comp472/')
 
 
 # Colab(Github) link 
